@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as sp from "./SecondProduct.css";
-import { SecondProductData } from "./SecondProductData";
 import styled, { css } from "styled-components";
 import { IoSearchCircle } from "react-icons/io5";
 import axios from "axios";

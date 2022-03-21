@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as ne from "./News.css";
-import { newsData } from "./newsData";
 // import img from "../../assets/logo192.png";
 import { BsCalendar2Date } from "react-icons/bs";
 import axios from "axios";

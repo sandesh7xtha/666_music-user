@@ -1,7 +1,5 @@
 import React,{useState} from 'react'
 import * as c from './Cart.css'
-import {CartData}  from "./CartData";
-import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import { useEffect } from 'react';

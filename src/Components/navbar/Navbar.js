@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import * as n from "./Navbar.css";
 import { IoNotificationsSharp } from "react-icons/io5";
 import { MdShoppingCart } from "react-icons/md";
-import logo from "../../assets/logo192.png";
-import SearchBar from "material-ui-search-bar";
+import logo from "../../assets/666logo.png";
+// import SearchBar from "material-ui-search-bar";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
@@ -32,12 +32,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const Navbar = (props) => {
   const [searchValue, setSearchValue] = useState("");
 
-  const handleKeypress = (e) => {
-    //it triggers by pressing the enter key
-    if (e.keyCode === 13) {
-      console.log(searchValue);
-    }
-  };
+  // const handleKeypress = (e) => {
+  //   //it triggers by pressing the enter key
+  //   if (e.keyCode === 13) {
+  //     console.log(searchValue);
+  //   }
+  // };
   return (
     <n.Main>
       <n.Root>

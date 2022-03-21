@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import * as p from './MyProduct.css';
-import {MyProductData}  from "./MyProductData";
 import {Redirect, useHistory} from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {Link} from 'react-router-dom';

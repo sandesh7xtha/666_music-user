@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Main = styled.div`
-position: fixed;
+  position: fixed;
   top: 0;
   width: 100%;
-  z-index:6;
+  z-index: 6;
 `;
 export const Root = styled.div`
 // background-color: #d65c5c;
@@ -23,15 +23,40 @@ align-items:center;
 
 
 
-img{
+.mainLogo{
     margin-left:13rem;
     height:3rem;
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+
+  }
+  
+  @keyframes spin {
+      from {
+          transform:rotate(0deg);
+      }
+      to {
+          transform:rotate(360deg);
+      }
 
     @media (max-width: 425px) {
       height:2rem;
       margin-left:1rem;
       
     },
+},
+
+
+.bandLogo{
+  height:3.5rem;
+  margin-bottom:-0.1rem;
+ 
+
+}
+
+
 },
 
 
@@ -93,34 +118,26 @@ p{
 
 `;
 export const Search = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-// .searchBar{
-//   ::placeholder {
-//     color: red;
-//     opacity: 1; /* Firefox */
-//   }
-// }
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // .searchBar{
+  //   ::placeholder {
+  //     color: red;
+  //     opacity: 1; /* Firefox */
+  //   }
+  // }
 `;
-export const SearchIconWrapper = styled.div`
-
-
-
-`;
-
+export const SearchIconWrapper = styled.div``;
 
 export const SubNavbar = styled.div`
-
-height:6vh;
-background-color:white;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-
-
+  height: 6vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 `;
 
 export const SubnavMenuItem = styled.div`

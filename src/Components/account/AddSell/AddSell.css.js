@@ -24,12 +24,12 @@ p{
     padding-bottom: 0.5rem;   
     padding-left: 1rem;
     margin:auto; 
-    border-style: outset;
+    // border-style: outset;
     position: relative;
     transition: all 1s ease;
     
     &:hover {
-        border-style: inset;
+        // border-style: inset;
         background-color:rgb(94, 94, 94);
         color:white;
         padding-left: 5rem;

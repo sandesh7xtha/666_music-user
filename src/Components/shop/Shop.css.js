@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const root = styled.div`
   margin-top: 15vh;
-  background: #e6e6e6;
+  // background: #e6e6e6;
   min-height: 100vh;
   display: flex;
 `;
@@ -36,12 +36,12 @@ p{
     padding-bottom: 0.5rem;   
     padding-left: 1rem;
     margin:auto; 
-    border-style: outset;
+    // border-style: outset;
     position: relative;
     transition: all 1s ease;
     
     &:hover {
-        border-style: inset;
+        // border-style: inset;
         background-color:rgb(94, 94, 94);
         color:white;
         padding-left: 5rem;
@@ -93,7 +93,7 @@ export const input = styled.div`
 display: flex;
 justify-content:space-evenly;
 align-items:center;
-margin-left: -0.6rem;
+// margin-left: -0.6rem;
 
   .iconSearch{
     height:2rem;

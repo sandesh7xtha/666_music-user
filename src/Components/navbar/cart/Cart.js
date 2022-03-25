@@ -4,6 +4,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import { useEffect } from 'react';
 
+import StripeCheckout from "react-stripe-checkout";
+import Checkout from "../cart/checkOut/Checkout";
+
+
 export const Cart = () => {
 
     const [cart, setCart] = useState([]);
@@ -31,6 +35,7 @@ export const Cart = () => {
     return (
         <c.root>
             <c.cartBox>
+
                 <c.content>
                     <c.head>
                         <p style={{color:'white'}}>Product</p>
@@ -66,7 +71,8 @@ export const Cart = () => {
 
                     </c.Grid>
                 </c.content>
-
+                <StripeCheckout shippingAddress/>
+<Checkout/>
             </c.cartBox>
         </c.root>
     )

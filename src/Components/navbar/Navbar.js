@@ -3,6 +3,8 @@ import * as n from "./Navbar.css";
 import { IoNotificationsSharp } from "react-icons/io5";
 import { MdShoppingCart } from "react-icons/md";
 import logo from "../../assets/666logo.png";
+import bandLogo from "../../assets/cover band.png";
+
 // import SearchBar from "material-ui-search-bar";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
@@ -10,7 +12,6 @@ import { styled, alpha } from "@mui/material/styles";
 
 import { Link } from "react-router-dom";
 import PopUp from "../account/PopUp";
-
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
@@ -32,17 +33,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const Navbar = (props) => {
   const [searchValue, setSearchValue] = useState("");
 
-  // const handleKeypress = (e) => {
-  //   //it triggers by pressing the enter key
-  //   if (e.keyCode === 13) {
-  //     console.log(searchValue);
-  //   }
-  // };
+
   return (
     <n.Main>
       <n.Root>
-        <img src={logo} />
-
+        <div>
+        <img className="mainLogo" src={logo} />
+        <img  className="bandLogo" src={bandLogo} />
+        </div>
         <n.NavMenu>
           <n.Search>
             <StyledInputBase
@@ -63,7 +61,7 @@ export const Navbar = (props) => {
             style={{ borderRadius: "13px" }}
           />
 
-          <IoNotificationsSharp className="iconNotify" />
+          {/* <IoNotificationsSharp className="iconNotify" /> */}
           <Link to="/cart">
             {" "}
             <MdShoppingCart className="iconCart" />{" "}

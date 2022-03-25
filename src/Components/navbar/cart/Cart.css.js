@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const root = styled.div`
   margin-top: 15vh;
-  background: #e6e6e6;
+  // background: #e6e6e6;
 `;
 
 export const cartBox = styled.div`

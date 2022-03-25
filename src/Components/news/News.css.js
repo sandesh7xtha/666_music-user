@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
 export const root = styled.div`
-  margin-top: 15vh;
+  padding-top: 15vh;
   background: #e6e6e6;
 `;
 
 export const post = styled.div`
 
 
-// height: 200vh;
 margin-left: 20rem;
 margin-right: 20rem;
-margin-top: 5rem;
 border-radius: 6px;
 padding-top: 1rem;
 @media (max-width: 1246px) {
@@ -29,12 +27,10 @@ padding-top: 1rem;
 export const content = styled.div`
 
 background-color: white;
-// height: 40vh;
 border-radius: 5px;
 padding: 1rem;
 margin-bottom:1rem; 
 box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-
 
 img{
     width: 100%;

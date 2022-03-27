@@ -4,8 +4,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import { useEffect } from 'react';
 
-import StripeCheckout from "react-stripe-checkout";
-import Checkout from "../cart/checkOut/Checkout";
+// import StripeCheckout from "react-stripe-checkout";
+// import Checkout from "../cart/checkOut/Checkout";
+import Checkout from "../cart/paymentForm/Checkout";
 
 
 export const Cart = () => {
@@ -71,7 +72,7 @@ export const Cart = () => {
 
                     </c.Grid>
                 </c.content>
-                <StripeCheckout shippingAddress/>
+                {/* <StripeCheckout shippingAddress/> */}
 <Checkout/>
             </c.cartBox>
         </c.root>

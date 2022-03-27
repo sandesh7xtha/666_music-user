@@ -1,0 +1,118 @@
+import React from "react";
+// import Typography from "@material-ui/core/Typography";
+// import Grid from "@material-ui/core/Grid";
+// import TextField from "@material-ui/core/TextField";
+// import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import Checkbox from "@material-ui/core/Checkbox";
+
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { TextField,Typography,Grid } from "@mui/material";
+
+function PaymentForm() {
+  const formik = useFormik({
+    initialValues: {
+      cardNumber: "",
+      expDate: "",
+      cvv: "",
+      city: "",
+      state: "",
+      zip: "",
+      country: "",
+    },
+    validationSchema: Yup.object({
+      cardNumber: Yup.string().required("Required"),
+      expDate: Yup.string().required("Required"),
+      cvv: Yup.string().required("Required"),
+      city: Yup.string().required("Required"),
+      state: Yup.string()
+        .matches(/^[0-9\b]+$/, "number only")
+        .required("Required"),
+      zip: Yup.string().required("Required"),
+      country: Yup.string().required("Required"),
+      // email: Yup.string().email("Invalid Email Format"),
+    }),
+
+    onSubmit: (values) => {
+      console.log("hello");
+      // sendToDatabase(values);
+    },
+  });
+  return (
+    <React.Fragment>
+      <Typography variant="h6" gutterBottom>
+        Payment method
+      </Typography>
+      <Grid container spacing={24}>
+        <Grid item xs={12} md={6}>
+          <TextField required id="cardName" label="Name on card" fullWidth />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {formik.touched.cardNumber && formik.errors.cardNumber ? (
+            <TextField
+              required
+              error
+              id="cardNumber"
+              label={formik.errors.cardNumber}
+              fullWidth
+              {...formik.getFieldProps("cardNumber")}
+            />
+          ) : (
+            <TextField
+              required
+              id="cardNumber"
+              label="Card number"
+              fullWidth
+              {...formik.getFieldProps("cardNumber")}
+            />
+          )}
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {formik.touched.expDate && formik.errors.expDate ? (
+            <TextField
+              required
+              error
+              id="expDate"
+              label={formik.errors.expDate}
+              fullWidth
+              {...formik.getFieldProps("expDate")}
+            />
+          ) : (
+            <TextField
+              required
+              id="expDate"
+              label="Expiry date"
+              fullWidth
+              {...formik.getFieldProps("expDate")}
+            />
+          )}
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {formik.touched.cvv && formik.errors.cvv ? (
+            <TextField
+              required
+              error
+              id="cvv"
+              label={formik.errors.cvv}
+              helperText="Last three digits on signature strip"
+              fullWidth
+              {...formik.getFieldProps("cvv")}
+            />
+          ) : (
+            <TextField
+              required
+              id="cvv"
+              label="CVV"
+              helperText="Last three digits on signature strip"
+              fullWidth
+              {...formik.getFieldProps("cvv")}
+            />
+          )}
+        </Grid>
+  
+      </Grid>
+    </React.Fragment>
+  );
+}
+
+export default PaymentForm;

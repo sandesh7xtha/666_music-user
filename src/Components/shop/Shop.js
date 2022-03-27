@@ -111,12 +111,13 @@ export const Shop = (props) => {
 
   const MaxMin = () => {
     let numberInputMin = document.getElementById("numberInputMinShop").value;
+    let numberInputMax = document.getElementById("numberInputMaxShop").value;
+
     setMinValue(numberInputMin);
     if (numberInputMax < numberInputMin) {
       setMinValue(0);
     }
 
-    let numberInputMax = document.getElementById("numberInputMaxShop").value;
     if (numberInputMax == 0) {
       setMaxValue(999999999999999999999999999999999999999999999999999);
     } else {

@@ -10,6 +10,8 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { FormControl, InputLabel } from "@mui/material";
 
+
+
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
@@ -95,6 +97,9 @@ export const SecondProduct = (props) => {
 
   useEffect(() => {
     getSecondProductFroMDB();
+
+
+
   }, []);
 
   const [filterValue, setFilterValue] = useState("");
@@ -123,33 +128,28 @@ export const SecondProduct = (props) => {
   const [maxValue, setMaxValue] =
     useState(9999999999999999999999999999999999999999999999);
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     cmt: "",
-  //   },
-  //   validationSchema: Yup.object({
-  //     cmt: Yup.string(),
-  //   }),
 
-  //   onSubmit: (values) => {
-  //     console.log("hello");
-  //     sendToDatabase(values);
-  //   },
-  // });
+  
+
+
 
   const MaxMin = () => {
-    let numberInputMin = document.getElementById("numberInputMin").value;
-    setMinValue(numberInputMin);
-    if (numberInputMax < numberInputMin) {
-      setMinValue(0);
-    }
-
     let numberInputMax = document.getElementById("numberInputMax").value;
+    let numberInputMin = document.getElementById("numberInputMin").value;
+
     if (numberInputMax == 0) {
       setMaxValue(999999999999999999999999999999999999999999999999999);
     } else {
       setMaxValue(numberInputMax);
     }
+
+
+    setMinValue(numberInputMin);
+    if (numberInputMax < numberInputMin) {
+      setMinValue(0);
+    }
+
+
   };
 
   const [order, setOrder] = useState("");
@@ -247,6 +247,7 @@ export const SecondProduct = (props) => {
                 min="0"
                 id="numberInputMin"
                 style={{ width: "3rem" }}
+
               />
               -
               <input
@@ -254,6 +255,7 @@ export const SecondProduct = (props) => {
                 min="0"
                 id="numberInputMax"
                 style={{ width: "3rem" }}
+
               />
               <IoSearchCircle className="iconSearch" onClick={MaxMin} />
             </sp.input>

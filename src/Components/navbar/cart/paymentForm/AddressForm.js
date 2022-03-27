@@ -7,23 +7,27 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 // import { TextField } from "@mui/material";
-import { TextField,Grid ,Typography,FormControlLabel,Checkbox} from "@mui/material";
+import {
+  TextField,
+  Grid,
+  Typography,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
 
-function AddressForm({setPayment}) {
-
-
-  const validate = values => {
-    // console.log(values.fullName);
-    setPayment({
+function AddressForm({ setAddressData }) {
+  const validate = (values) => {
+    console.log(values.fullName);
+    setAddressData({
       fullName: values.fullName,
-    address: values.address,
-    contactNumber: values.contactNumber,
-    city: values.city,
-    state: values.state,
-    zip: values.zip,
-    country: values.country,
-  });
-  }
+      address: values.address,
+      contactNumber: values.contactNumber,
+      city: values.city,
+      state: values.state,
+      zip: values.zip,
+      country: values.country,
+    });
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -50,18 +54,7 @@ function AddressForm({setPayment}) {
       // email: Yup.string().email("Invalid Email Format"),
     }),
     validate,
-    onSubmit: (values) => {
-      console.log("hello");
-      
-    },
   });
-
-  const handleFullname=(e)=>{
-  console.log(e);
-    // props.setPayment({
-    //   fullName:e.target.
-    // })
-  }
 
   return (
     <React.Fragment>

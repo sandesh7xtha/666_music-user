@@ -7,9 +7,22 @@ import React from "react";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { TextField,Typography,Grid } from "@mui/material";
+import { TextField, Typography, Grid } from "@mui/material";
 
-function PaymentForm() {
+function PaymentForm({ setPaymentData }) {
+  const validate = (values) => {
+    setPaymentData({
+      cardNumber: values.cardNumber,
+      expDate: values.expDate,
+      cvv: values.cvv,
+      city: values.city,
+      state: values.state,
+      zip: values.zip,
+      country: values.country,
+    });
+    // console.log(values.cardNumber)
+  };
+
   const formik = useFormik({
     initialValues: {
       cardNumber: "",
@@ -25,27 +38,28 @@ function PaymentForm() {
       expDate: Yup.string().required("Required"),
       cvv: Yup.string().required("Required"),
       city: Yup.string().required("Required"),
-      state: Yup.string()
-        .matches(/^[0-9\b]+$/, "number only")
-        .required("Required"),
+      state: Yup.string().required("Required"),
       zip: Yup.string().required("Required"),
       country: Yup.string().required("Required"),
       // email: Yup.string().email("Invalid Email Format"),
     }),
 
-    onSubmit: (values) => {
-      console.log("hello");
-      // sendToDatabase(values);
-    },
+    validate,
   });
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Payment method
       </Typography>
-      <Grid container spacing={24}>
+      <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" fullWidth />
+          <TextField
+            required
+            id="cardName"
+            size="small"
+            label="Name on card"
+            fullWidth
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           {formik.touched.cardNumber && formik.errors.cardNumber ? (
@@ -55,6 +69,7 @@ function PaymentForm() {
               id="cardNumber"
               label={formik.errors.cardNumber}
               fullWidth
+              size="small"
               {...formik.getFieldProps("cardNumber")}
             />
           ) : (
@@ -63,6 +78,7 @@ function PaymentForm() {
               id="cardNumber"
               label="Card number"
               fullWidth
+              size="small"
               {...formik.getFieldProps("cardNumber")}
             />
           )}
@@ -75,6 +91,7 @@ function PaymentForm() {
               id="expDate"
               label={formik.errors.expDate}
               fullWidth
+              size="small"
               {...formik.getFieldProps("expDate")}
             />
           ) : (
@@ -83,6 +100,7 @@ function PaymentForm() {
               id="expDate"
               label="Expiry date"
               fullWidth
+              size="small"
               {...formik.getFieldProps("expDate")}
             />
           )}
@@ -96,6 +114,7 @@ function PaymentForm() {
               label={formik.errors.cvv}
               helperText="Last three digits on signature strip"
               fullWidth
+              size="small"
               {...formik.getFieldProps("cvv")}
             />
           ) : (
@@ -105,11 +124,11 @@ function PaymentForm() {
               label="CVV"
               helperText="Last three digits on signature strip"
               fullWidth
+              size="small"
               {...formik.getFieldProps("cvv")}
             />
           )}
         </Grid>
-  
       </Grid>
     </React.Fragment>
   );

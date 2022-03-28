@@ -267,29 +267,29 @@ export const SecondProduct = (props) => {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="Age"
-                  // size="small"
 
                 >
-                  <div style={{ display: "flex", flexDirection: "column" }}>
                     <MenuItem
                       value="best match"
                       onClick={() => sortingBM("price")}
+                      style={{ display: "flex", flexDirection: "column" }}
                     >
                       Best Match
                     </MenuItem>
                     <MenuItem
                       value="low price to higher price"
                       onClick={() => sortingLTH("price")}
+                      style={{ display: "flex", flexDirection: "column" }}
                     >
                       Low to Higher Price{" "}
                     </MenuItem>
                     <MenuItem
                       value="higher price to lower price"
                       onClick={() => sortingHTL("price")}
+                      style={{ display: "flex", flexDirection: "column" }}
                     >
                       Higher to Lower Price
                     </MenuItem>
-                  </div>
                 </Select>
               </FormControl>
             </sp.sortBy>

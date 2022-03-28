@@ -124,8 +124,15 @@ export const AddSell = () => {
     history.push("/signIn");
     window.location.reload(false);
   };
-  const push = () => {
+  const AddSellPush = () => {
+    history.push("/addsell");
+  };
+
+  const myProductPush = () => {
     history.push("/myProduct");
+  };
+  const HistoryPush = () => {
+    history.push("/History");
   };
 
   if (!token) {
@@ -137,8 +144,10 @@ export const AddSell = () => {
       <p.div>
         <p.NavMenu>
           <p.userName>{name}</p.userName>
-          <p>Add Sell</p>
-          <p onClick={push}>My Product</p>
+          <p onClick={AddSellPush}>Add Sell</p>
+          <p onClick={myProductPush}>My Product</p>
+          <p onClick={HistoryPush}>History</p>
+
           <p onClick={logout}>Log out</p>
         </p.NavMenu>
 

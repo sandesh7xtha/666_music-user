@@ -17,6 +17,7 @@ const Checkout = () => {
   });
 
   const [PaymentData, setPaymentData] = useState({
+    cardName:"",
     cardNumber: "",
     expDate: "",
     cvv: "",
@@ -30,7 +31,7 @@ const Checkout = () => {
     <c.root>
       <AddressForm setAddressData={setAddressData} />
       <PaymentForm setPaymentData={setPaymentData} />
-      {/* <Review/> */}
+      <Review/>
       <Button>pay</Button>
     </c.root>
   );

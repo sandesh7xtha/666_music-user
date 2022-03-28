@@ -9,22 +9,23 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { TextField, Typography, Grid } from "@mui/material";
 
-function PaymentForm({ setPaymentData }) {
+function PaymentForm( {setPaymentData} ) {
   const validate = (values) => {
     setPaymentData({
+      cardName:values.cardName,
       cardNumber: values.cardNumber,
       expDate: values.expDate,
       cvv: values.cvv,
       city: values.city,
       state: values.state,
       zip: values.zip,
-      country: values.country,
+      country: values.country
     });
-    // console.log(values.cardNumber)
   };
 
   const formik = useFormik({
     initialValues: {
+      cardName:"",
       cardNumber: "",
       expDate: "",
       cvv: "",
@@ -34,6 +35,7 @@ function PaymentForm({ setPaymentData }) {
       country: "",
     },
     validationSchema: Yup.object({
+      cardName: Yup.string().required("Required"),
       cardNumber: Yup.string().required("Required"),
       expDate: Yup.string().required("Required"),
       cvv: Yup.string().required("Required"),
@@ -59,6 +61,8 @@ function PaymentForm({ setPaymentData }) {
             size="small"
             label="Name on card"
             fullWidth
+            {...formik.getFieldProps("cardName")}
+
           />
         </Grid>
         <Grid item xs={12} md={6}>

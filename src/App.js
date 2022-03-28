@@ -13,6 +13,7 @@ import NewAccount from './Components/account//NewAccount/NewAccount';
 import { Cart } from './Components/navbar/cart/Cart';
 import { ShopProductDetail } from './Components/shop/shopProductDetail/ShopProductDetail';
 import { SecondhandDetail } from './Components/secondProduct/SecondhandDetail/SecondhandDetail';
+import {History} from './Components/account/History/History';
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
@@ -40,6 +41,8 @@ function App() {
               <Route exact path="/myProduct" component={MyProduct} />
               <Route exact path="/ShopProductDetail/:id" component={ShopProductDetail} />
               <Route exact path="/secondhandDetail/:id" component={SecondhandDetail} />
+              <Route exact path="/History" component={History} />
+
               
 
           </Switch>

@@ -267,6 +267,8 @@ export const SecondProduct = (props) => {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="Age"
+                  // size="small"
+
                 >
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <MenuItem

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const root = styled.div`
   padding-top: 15vh;
-  background: #e6e6e6;
+  // background: #e6e6e6;
 `;
 
 export const post = styled.div`

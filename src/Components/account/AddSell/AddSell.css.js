@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const root = styled.div`
-  margin-top: 15vh;
-  background: #e6e6e6;
+  margin-top: 13vh;
+  // background: #e6e6e6;
   display: flex;
-  // height:30vh;
 `;
 
 export const div = styled.div`
@@ -54,13 +53,18 @@ export const userName = styled.div`
 export const addSellForm = styled.div`
   margin-top: 5rem;
   margin-bottom: 2rem;
-//   padding-bottom:1 rem;
+  //   padding-bottom:1 rem;
   height: auto;
 
   justify-content: space-around;
   padding-top: 2rem;
   margin-left: 20rem;
   background-color: white;
+  // border-style: solid;
+  // border-width: 0.1px;
+  // border-color: #cccccc;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
   p {
     display: flex;
     justify-content: center;
@@ -112,6 +116,6 @@ export const part = styled.div`
   }
   .addbutton {
     margin-left: 7.9rem;
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
   }
 `;

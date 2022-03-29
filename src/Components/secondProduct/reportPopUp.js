@@ -90,13 +90,10 @@ export default function DraggableDialog(props) {
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-            <br />
+          If you come across any other products that aren't in the mussical categories, please let us know.       <br />
             {formik.touched.message && formik.errors.message ? (
               <TextField
                 id="filled-multiline-flexible"
-                label="Message"
                 multiline
                 maxRows={4}
                 variant="filled"

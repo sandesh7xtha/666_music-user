@@ -5,6 +5,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
+import EditProduct from "./EditSecondhandPopUp";
+
 
 export const MyProduct = () => {
   const history = useHistory();
@@ -95,11 +97,15 @@ export const MyProduct = () => {
                 </Link>
                 <p.subGrid>
                   <price className="price">Rs.{item.price ? item.price : " "}</price>
+                  <div style={{ display: "flex" }}>
+                  <EditProduct/>
+                  &nbsp; 
                   <DeleteIcon
                     onClick={() => {
                       deleteProduct(item.shp_id);
                     }}
                   />
+                  </div>
                 </p.subGrid>
               </p.Item>
             ))}

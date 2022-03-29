@@ -8,14 +8,12 @@ import axios from "axios";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { FormControl, InputLabel } from "@mui/material";
-import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
 import { Redirect, useHistory } from "react-router-dom";
 import Alert from "../../../material/alertCOMP/alert";
 
 import IMGcroper from "../../../material/cropIMG/IMGcropper";
 // import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
-
-
 
 export const AddSell = () => {
   const history = useHistory();
@@ -251,16 +249,49 @@ export const AddSell = () => {
                       label={formik.errors.category}
                       {...formik.getFieldProps("category")}
                     >
-                        <MenuItem value="" style={{ display: "flex", flexDirection: "column" }}>
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value="Drum" style={{ display: "flex", flexDirection: "column" }} >Drum</MenuItem>
-                        <MenuItem value="Guitar" style={{ display: "flex", flexDirection: "column" }}>Guitar</MenuItem>
-                        <MenuItem value="Bass" style={{ display: "flex", flexDirection: "column" }}> Bass</MenuItem>
-                        <MenuItem value="Keyboard" style={{ display: "flex", flexDirection: "column" }}>Keyboard</MenuItem>
-                        <MenuItem value="Microphone" style={{ display: "flex", flexDirection: "column" }}>Microphone</MenuItem>
-                        <MenuItem value="Accessories" style={{ display: "flex", flexDirection: "column" }}>Accessories</MenuItem>
-
+                      <MenuItem
+                        value=""
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem
+                        value="Drum"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Drum
+                      </MenuItem>
+                      <MenuItem
+                        value="Guitar"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Guitar
+                      </MenuItem>
+                      <MenuItem
+                        value="Bass"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        {" "}
+                        Bass
+                      </MenuItem>
+                      <MenuItem
+                        value="Keyboard"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Keyboard
+                      </MenuItem>
+                      <MenuItem
+                        value="Microphone"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Microphone
+                      </MenuItem>
+                      <MenuItem
+                        value="Accessories"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Accessories
+                      </MenuItem>
                     </Select>
                   </>
                 ) : (
@@ -275,17 +306,48 @@ export const AddSell = () => {
                       label="Category"
                       {...formik.getFieldProps("category")}
                     >
-            
-                        <MenuItem value="" style={{ display: "flex", flexDirection: "column" }}>
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value="Drum" style={{ display: "flex", flexDirection: "column" }} >Drum</MenuItem>
-                        <MenuItem value="Guitar" style={{ display: "flex", flexDirection: "column" }}>Guitar</MenuItem>
-                        <MenuItem value="Bass" style={{ display: "flex", flexDirection: "column" }}>Bass</MenuItem>
-                        <MenuItem value="Keyboard" style={{ display: "flex", flexDirection: "column" }}>Keyboard</MenuItem>
-                        <MenuItem value="Microphone" style={{ display: "flex", flexDirection: "column" }}>Microphone</MenuItem>
-                        <MenuItem value="Accessories" style={{ display: "flex", flexDirection: "column" }}>Accessories</MenuItem>
-                   
+                      <MenuItem
+                        value=""
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem
+                        value="Drum"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Drum
+                      </MenuItem>
+                      <MenuItem
+                        value="Guitar"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Guitar
+                      </MenuItem>
+                      <MenuItem
+                        value="Bass"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Bass
+                      </MenuItem>
+                      <MenuItem
+                        value="Keyboard"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Keyboard
+                      </MenuItem>
+                      <MenuItem
+                        value="Microphone"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Microphone
+                      </MenuItem>
+                      <MenuItem
+                        value="Accessories"
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        Accessories
+                      </MenuItem>
                     </Select>
                   </>
                 )}

@@ -47,20 +47,19 @@ export default function DraggableDialog(props) {
   };
   const id = localStorage.getItem("id");
   const token = localStorage.getItem("token");
-
+  const pid = props.data.shp_id;
   const customAlert = useRef();
 
   const formik = useFormik({
     initialValues: {
-      title: "",
-      image: "",
-      description: "",
-      category: "",
-      price: "",
-      usedDuration: "",
-      contactNumber: "",
-      email: "",
-      location: "",
+      title: props.data.title,
+      description: props.data.description,
+      category: props.data.category,
+      price: props.data.price,
+      usedDuration: props.data.used_duration,
+      contactNumber: props.data.contact_number,
+      email: props.data.email,
+      location: props.data.location,
     },
     validationSchema: Yup.object({
       title: Yup.string().min(5, "Must be 5 characters").required("Required"),
@@ -90,60 +89,52 @@ export default function DraggableDialog(props) {
     },
   });
 
-  const [pic, setPic] = useState(null);
-
-  // const fileSelectedHandler = (event) => {
-  //   setPic(event.target.files[0]);
-  // };
-
-  const [checkImage, setCheckImage] = useState("");
   const sendToDatabase = (values) => {
-    if (pic != null) {
-      var formData = new FormData();
-      formData.append("title", values.title);
-      formData.append("image", pic);
-      formData.append("description", values.description);
-      formData.append("category", values.category);
-      formData.append("price", values.price);
-      formData.append("used_duration", values.usedDuration);
+    // if (pic != null) {
+    // var formData = new FormData();
+    // formData.append("title", values.title);
+    // formData.append("description", values.description);
+    // formData.append("category", values.category);
+    // formData.append("price", values.price);
+    // formData.append("used_duration", values.usedDuration);
 
-      formData.append("contact_number", values.contactNumber);
-      formData.append("email", values.email);
-      formData.append("location", values.location);
-      formData.append("user_id", id);
+    // formData.append("contact_number", values.contactNumber);
+    // formData.append("email", values.email);
+    // formData.append("location", values.location);
+    // formData.append("user_id", id);
 
-      // const data = {
-      //   title: values.title,
-      //   image: pic,
-      //   description: values.description,
-      //   category: values.category,
-      //   price: values.price,
-      //   used_duration: values.usedDuration,
-      //   contact_number: values.contactNumber,
-      //   email: values.email,
-      //   location: values.location,
-      //   user_id: id,
-      // };
+    const data = {
+      title: values.title,
+      description: values.description,
+      category: values.category,
+      price: values.price,
+      used_duration: values.usedDuration,
+      contact_number: values.contactNumber,
+      email: values.email,
+      location: values.location,
+      user_id: id,
+      shp_id: pid,
+    };
 
-      axios
-        .post("http://localhost:4000/secondProduct/", formData, {
-          headers: { Authorization: token },
-        })
-        .then((res) => {
-          console.log("Data inserted");
-          console.log(res);
-          customAlert.current.success("Product Successfully added");
-          setCheckImage("");
-          formik.resetForm();
-        })
-        .catch((err) => {
-          console.log(err);
-          console.log("data insert fail");
-        });
-    } else {
-      setCheckImage("image required");
-      customAlert.current.error("Image required");
-    }
+    axios
+      .patch("http://localhost:4000/secondProduct/", data, {
+        headers: { Authorization: token },
+      })
+      .then((res) => {
+        console.log("Data inserted");
+        console.log(res);
+        customAlert.current.success("Product Successfully added");
+        // setCheckImage("");
+        // formik.resetForm();
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log("data insert fail");
+      });
+    // } else {
+    //   setCheckImage("image required");
+    //   customAlert.current.error("Image required");
+    // }
   };
 
   return (
@@ -157,18 +148,17 @@ export default function DraggableDialog(props) {
         aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
-          Secondhand Product 
+          Secondhand Product
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
             <p.addSellForm>
               <p
                 style={{
-              
                   color: "#a8a8a8",
                 }}
               >
-                Edit secondhand Detail 
+                Edit secondhand Detail
               </p>
               <p.part>
                 <p>Title</p>
@@ -216,7 +206,7 @@ export default function DraggableDialog(props) {
 
               <p.part>
                 <p>Description</p>
-                <div style={{width:"13.9rem"}} >
+                <div style={{ width: "13.9rem" }}>
                   {formik.touched.description && formik.errors.description ? (
                     <TextField
                       id="description"
@@ -246,131 +236,129 @@ export default function DraggableDialog(props) {
               {/* <br/> */}
               <p.part style={{ marginTop: "1rem" }}>
                 <p>Category</p>
-                <div style={{  width:"13.9rem"}} >
-
-                <FormControl fullWidth>
-                  {formik.touched.category && formik.errors.category ? (
-                    <>
-                      <InputLabel
-                        id="demo-simple-select-label"
-                        style={{ color: "#D32F2F" }}
-                      >
-                        Required
-                      </InputLabel>
-                      <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        error
-                        size="small"
-                        className="category"
-                        label={formik.errors.category}
-                        {...formik.getFieldProps("category")}
-                      >
-                        <MenuItem
-                          value=""
-                          style={{ display: "flex", flexDirection: "column" }}
+                <div style={{ width: "13.9rem" }}>
+                  <FormControl fullWidth>
+                    {formik.touched.category && formik.errors.category ? (
+                      <>
+                        <InputLabel
+                          id="demo-simple-select-label"
+                          style={{ color: "#D32F2F" }}
                         >
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem
-                          value="Drum"
-                          style={{ display: "flex", flexDirection: "column" }}
+                          Required
+                        </InputLabel>
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          error
+                          size="small"
+                          className="category"
+                          label={formik.errors.category}
+                          {...formik.getFieldProps("category")}
                         >
-                          Drum
-                        </MenuItem>
-                        <MenuItem
-                          value="Guitar"
-                          style={{ display: "flex", flexDirection: "column" }}
+                          <MenuItem
+                            value=""
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem
+                            value="Drum"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Drum
+                          </MenuItem>
+                          <MenuItem
+                            value="Guitar"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Guitar
+                          </MenuItem>
+                          <MenuItem
+                            value="Bass"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            {" "}
+                            Bass
+                          </MenuItem>
+                          <MenuItem
+                            value="Keyboard"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Keyboard
+                          </MenuItem>
+                          <MenuItem
+                            value="Microphone"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Microphone
+                          </MenuItem>
+                          <MenuItem
+                            value="Accessories"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Accessories
+                          </MenuItem>
+                        </Select>
+                      </>
+                    ) : (
+                      <>
+                        <InputLabel id="demo-simple-select-label">
+                          Select
+                        </InputLabel>
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-selecl"
+                          className="category"
+                          label="Category"
+                          size="small"
+                          {...formik.getFieldProps("category")}
                         >
-                          Guitar
-                        </MenuItem>
-                        <MenuItem
-                          value="Bass"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          {" "}
-                          Bass
-                        </MenuItem>
-                        <MenuItem
-                          value="Keyboard"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Keyboard
-                        </MenuItem>
-                        <MenuItem
-                          value="Microphone"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Microphone
-                        </MenuItem>
-                        <MenuItem
-                          value="Accessories"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Accessories
-                        </MenuItem>
-                      </Select>
-                    </>
-                  ) : (
-                    <>
-                      <InputLabel id="demo-simple-select-label">
-                        Select
-                      </InputLabel>
-                      <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-selecl"
-                        className="category"
-                        label="Category"
-                        size="small"
-                        
-                        {...formik.getFieldProps("category")}
-                      >
-                        <MenuItem
-                          value=""
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem
-                          value="Drum"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Drum
-                        </MenuItem>
-                        <MenuItem
-                          value="Guitar"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Guitar
-                        </MenuItem>
-                        <MenuItem
-                          value="Bass"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Bass
-                        </MenuItem>
-                        <MenuItem
-                          value="Keyboard"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Keyboard
-                        </MenuItem>
-                        <MenuItem
-                          value="Microphone"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Microphone
-                        </MenuItem>
-                        <MenuItem
-                          value="Accessories"
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          Accessories
-                        </MenuItem>
-                      </Select>
-                    </>
-                  )}
-                </FormControl>
+                          <MenuItem
+                            value=""
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem
+                            value="Drum"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Drum
+                          </MenuItem>
+                          <MenuItem
+                            value="Guitar"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Guitar
+                          </MenuItem>
+                          <MenuItem
+                            value="Bass"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Bass
+                          </MenuItem>
+                          <MenuItem
+                            value="Keyboard"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Keyboard
+                          </MenuItem>
+                          <MenuItem
+                            value="Microphone"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Microphone
+                          </MenuItem>
+                          <MenuItem
+                            value="Accessories"
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            Accessories
+                          </MenuItem>
+                        </Select>
+                      </>
+                    )}
+                  </FormControl>
                 </div>
               </p.part>
 
@@ -489,18 +477,8 @@ export default function DraggableDialog(props) {
                   />
                 )}
               </p.part>
-              <p.part>
-                <Button
-                  className="addbutton"
-                  onClick={formik.handleSubmit}
-                  // onClick={()=>customAlert.current.success("good boy")}
 
-                  variant="outlined"
-                >
-                  Add
-                </Button>
-                <Alert ref={customAlert} />
-              </p.part>
+              <Alert ref={customAlert} />
             </p.addSellForm>
           </DialogContentText>
         </DialogContent>
@@ -508,7 +486,7 @@ export default function DraggableDialog(props) {
           <Button autoFocus onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={formik.handleSubmit}>Send</Button>
+          <Button onClick={formik.handleSubmit}>Update</Button>
         </DialogActions>
       </Dialog>
     </div>

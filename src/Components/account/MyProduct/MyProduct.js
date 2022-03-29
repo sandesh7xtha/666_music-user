@@ -98,7 +98,7 @@ export const MyProduct = () => {
                 <p.subGrid>
                   <price className="price">Rs.{item.price ? item.price : " "}</price>
                   <div style={{ display: "flex" }}>
-                  <EditProduct/>
+                  <EditProduct data={item}/>
                   &nbsp; 
                   <DeleteIcon
                     onClick={() => {

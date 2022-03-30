@@ -7,14 +7,16 @@ export const root = styled.div`
   display: flex;
 `;
 export const div = styled.div`
-  margin-left: 13rem;
+  display:flex;
 `;
 
 export const categories = styled.div`
-  background-color: white;
+  // background-color: red;
 
-  width: 15%;
-  position: fixed;
+  width: 30%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  // position: fixed;
 `;
 
 export const CategoryHeading = styled.div`
@@ -29,6 +31,7 @@ export const CategoryHeading = styled.div`
 `;
 
 export const categoriesSection = styled.div`
+
 
 p{
     background-color:white;
@@ -54,11 +57,11 @@ p{
 `;
 
 export const productSection = styled.div`
-  width: 60%;
-  display: flex;
-  justify-content: space-around;
+  // width: 60%;
+  // display: flex;
+  // justify-content: space-around;
   padding-top: 2rem;
-  margin-left: 20rem;
+  // margin-left: 20rem;
 
   // @media (max-width: 1246px) {
   //     margin-left: 1rem;

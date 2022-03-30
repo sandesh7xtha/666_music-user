@@ -304,6 +304,7 @@ export const AddSell = () => {
                       id="demo-simple-selecl"
                       className="category"
                       label="Category"
+                      
                       {...formik.getFieldProps("category")}
                     >
                       <MenuItem

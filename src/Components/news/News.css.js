@@ -8,8 +8,8 @@ export const root = styled.div`
 export const post = styled.div`
 
 
-margin-left: 20rem;
-margin-right: 20rem;
+margin-left: 30rem;
+margin-right: 30rem;
 border-radius: 6px;
 padding-top: 1rem;
 @media (max-width: 1246px) {

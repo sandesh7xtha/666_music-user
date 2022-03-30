@@ -14,6 +14,7 @@ import { Cart } from './Components/navbar/cart/Cart';
 import { ShopProductDetail } from './Components/shop/shopProductDetail/ShopProductDetail';
 import { SecondhandDetail } from './Components/secondProduct/SecondhandDetail/SecondhandDetail';
 import {History} from './Components/account/History/History';
+import {Footer} from './Components/Footer/Footer';
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
@@ -46,6 +47,7 @@ function App() {
               
 
           </Switch>
+          <Footer/>
        </BrowserRouter>
     </div>
   );

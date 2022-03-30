@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const root = styled.div`
   margin-top: 15vh;
+  min-height: 100vh;
+
   // background: #e6e6e6;
   // background: #e6e6e6;
 
@@ -10,19 +12,16 @@ export const root = styled.div`
   // // justify-content:space-around;
 `;
 export const div = styled.div`
-  margin-left: 13rem;
-  .flexDiv {
-    // display: flex;
-    // flex-direction: column;
-  }
+  display:flex;
 `;
 
 export const categories = styled.div`
-  background-color: white;
+  // background-color: red;
 
-  width: 15%;
-  position: fixed;
-  // margin-left: 5rem;
+  width: 30%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  // position: fixed;
 `;
 
 export const CategoryHeading = styled.div`
@@ -111,10 +110,7 @@ export const searchOutput = styled.div`
   // margin-top: 1rem;
 `;
 export const productSection = styled.div`
-  width: 60%;
-  display: flex;
-  justify-content: space-around;
-  margin-left: 8.5rem;
+  
 `;
 
 export const upload = styled.div`

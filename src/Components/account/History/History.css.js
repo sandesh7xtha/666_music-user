@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const root = styled.div`
   margin-top: 13vh;
-  background: #e6e6e6;
+  // background: #e6e6e6;
   display: flex;
+  min-height: 100vh;
+
   // height:30vh;
 `;
 

@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const root = styled.div`
   margin-top: 13vh;
   // background: #e6e6e6;
+  min-height: 100vh;
+
   display: flex;
 `;
 

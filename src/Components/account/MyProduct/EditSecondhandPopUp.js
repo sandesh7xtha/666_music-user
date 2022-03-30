@@ -123,7 +123,7 @@ export default function DraggableDialog(props) {
       .then((res) => {
         console.log("Data inserted");
         console.log(res);
-        customAlert.current.success("Product Successfully added");
+        customAlert.current.success("Product Successfully Edited");
         // setCheckImage("");
         // formik.resetForm();
       })

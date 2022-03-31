@@ -3,11 +3,20 @@ import * as c from "./Cart.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 import { useEffect } from "react";
+import Grid from "@mui/material/Grid";
 
 // import StripeCheckout from "react-stripe-checkout";
 // import Checkout from "../cart/checkOut/Checkout";
 import Checkout from "../cart/paymentForm/Checkout";
 import { Button } from "@mui/material";
+
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 export const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -17,6 +26,7 @@ export const Cart = () => {
     setShow(!show);
   };
 
+  var total=0;
   const getCartFroMDB = () => {
     axios
       .get("http://localhost:4000/addToCart/" + id)
@@ -33,50 +43,85 @@ export const Cart = () => {
   useEffect(() => {
     getCartFroMDB();
   }, []);
-
+  console.log(total);
   return (
     <c.root>
       <c.cartBox>
         <c.content>
-          <c.head>
-            <p style={{ color: "white" }}>Product</p>
-            <p style={{ marginLeft: "35rem", color: "white" }}>Quantity</p>
-            <p
-              style={{
-                marginRight: "4rem",
-                color: "white",
-                marginLeft: "3rem",
-              }}
-            >
-              Price
-            </p>
-          </c.head>
-          <c.Grid>
-            {cart.map((item, index) => (
-              <c.Item>
-                <img src={item.image} />
-                <c.detail>
-                  <name>{item.title}</name>
-                  <dis>{item.description}</dis>
-                  <DeleteIcon
-                    style={{ marginLeft: "20rem", marginBottom: "0.0rem" }}
-                  />
-                </c.detail>
-
-                <c.quantity>
-                  <quantity>{item.quantity}</quantity>
-                </c.quantity>
-                <c.price>
-                  <price> Rs.{item.price}</price>
-                  <br />
-
-                  <price>Total Rs.{item.price * item.quantity}</price>
-                </c.price>
-              </c.Item>
-            ))}
-          </c.Grid>
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow style={{ backgroundColor: "black", color: "white" }}>
+                  <TableCell style={{ color: "white" }}>Product</TableCell>
+                  <TableCell></TableCell>
+                  <TableCell style={{ color: "white" }} align="right">
+                    Quantity
+                  </TableCell>
+                  <TableCell style={{ color: "white" }} align="right">
+                    Price
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {cart.map((item) => {
+                  
+                  total = total+(item.price*item.quantity);
+                  return(
+                  
+                  <TableRow
+                    key={item.title}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      <img
+                        style={{ width: "7rem", height: "100%" }}
+                        src={item.image}
+                      />{" "}
+                    </TableCell>
+                    <TableCell align="left">
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          
+                        }}
+                      >
+                        <span> {item.title}</span>
+                        <span style={{marginTop:"1rem"}}>
+                          {" "}
+                          {item.description}
+                        </span>
+                      </div>
+                    </TableCell>
+                    <TableCell align="right">
+                      <span >{item.quantity}</span>
+                    </TableCell>
+                    <TableCell align="right">
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        <span> Rs.{item.price}</span>
+                        <span style={{marginTop:"1rem"}}>
+                          Total Rs.{item.price * item.quantity}
+                        </span>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                )})}
+                 <TableCell align="right">
+                Total
+                    </TableCell>
+                    <TableCell align="right">
+              
+                    </TableCell>
+                    <TableCell align="right">
+              
+              </TableCell>
+                <TableCell align="right">
+                Rs{total}
+                    </TableCell>
+              </TableBody>
+            </Table>
+          </TableContainer>
         </c.content>
-        {/* <StripeCheckout shippingAddress/> */}
         <Button onClick={showAddField}>Check Out</Button>
         {show ? <Checkout /> : " "}
       </c.cartBox>

@@ -82,7 +82,6 @@ export const Shop = (props) => {
   useEffect(() => {
     getShopProductFroMDB();
   }, []);
-
   const [filterValue, setFilterValue] = useState("");
   const filter = (value) => {
     setFilterValue(value);

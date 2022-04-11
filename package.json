@@ -19,6 +19,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^6.2.8",
     "get-orientation": "^1.1.2",
+    "khalti-checkout-web": "^2.2.0",
     "material-icons": "^1.10.0",
     "material-ui-password-field": "^2.1.2",
     "material-ui-search-bar": "^1.0.0",

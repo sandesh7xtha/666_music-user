@@ -10,8 +10,6 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { FormControl, InputLabel } from "@mui/material";
 
-
-
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
@@ -97,9 +95,6 @@ export const SecondProduct = (props) => {
 
   useEffect(() => {
     getSecondProductFroMDB();
-
-
-
   }, []);
 
   const [filterValue, setFilterValue] = useState("");
@@ -128,11 +123,6 @@ export const SecondProduct = (props) => {
   const [maxValue, setMaxValue] =
     useState(9999999999999999999999999999999999999999999999);
 
-
-  
-
-
-
   const MaxMin = () => {
     let numberInputMax = document.getElementById("numberInputMax").value;
     let numberInputMin = document.getElementById("numberInputMin").value;
@@ -143,13 +133,10 @@ export const SecondProduct = (props) => {
       setMaxValue(numberInputMax);
     }
 
-
     setMinValue(numberInputMin);
     if (numberInputMax < numberInputMin) {
       setMinValue(0);
     }
-
-
   };
 
   const [order, setOrder] = useState("");
@@ -247,7 +234,6 @@ export const SecondProduct = (props) => {
                 min="0"
                 id="numberInputMin"
                 style={{ width: "3rem" }}
-
               />
               -
               <input
@@ -255,7 +241,6 @@ export const SecondProduct = (props) => {
                 min="0"
                 id="numberInputMax"
                 style={{ width: "3rem" }}
-
               />
               <IoSearchCircle className="iconSearch" onClick={MaxMin} />
             </sp.input>
@@ -267,29 +252,28 @@ export const SecondProduct = (props) => {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="Age"
-
                 >
-                    <MenuItem
-                      value="best match"
-                      onClick={() => sortingBM("price")}
-                      style={{ display: "flex", flexDirection: "column" }}
-                    >
-                      Best Match
-                    </MenuItem>
-                    <MenuItem
-                      value="low price to higher price"
-                      onClick={() => sortingLTH("price")}
-                      style={{ display: "flex", flexDirection: "column" }}
-                    >
-                      Low to Higher Price{" "}
-                    </MenuItem>
-                    <MenuItem
-                      value="higher price to lower price"
-                      onClick={() => sortingHTL("price")}
-                      style={{ display: "flex", flexDirection: "column" }}
-                    >
-                      Higher to Lower Price
-                    </MenuItem>
+                  <MenuItem
+                    value="best match"
+                    onClick={() => sortingBM("price")}
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    Best Match
+                  </MenuItem>
+                  <MenuItem
+                    value="low price to higher price"
+                    onClick={() => sortingLTH("price")}
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    Low to Higher Price{" "}
+                  </MenuItem>
+                  <MenuItem
+                    value="higher price to lower price"
+                    onClick={() => sortingHTL("price")}
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    Higher to Lower Price
+                  </MenuItem>
                 </Select>
               </FormControl>
             </sp.sortBy>

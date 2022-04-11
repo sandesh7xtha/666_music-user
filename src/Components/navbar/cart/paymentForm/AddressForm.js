@@ -17,7 +17,7 @@ import {
 
 function AddressForm({ setAddressData }) {
   const validate = (values) => {
-    console.log(values.fullName);
+    // console.log(values.fullName);
     setAddressData({
       fullName: values.fullName,
       address: values.address,
@@ -115,7 +115,7 @@ function AddressForm({ setAddressData }) {
             />
           )}
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6}>
           {formik.touched.contactNumber && formik.errors.contactNumber ? (
             <TextField
               required
@@ -215,7 +215,7 @@ function AddressForm({ setAddressData }) {
             />
           )}
         </Grid>
-        <Grid item xs={12} sm={6}>
+        {/* <Grid item xs={12} sm={6}>
           {formik.touched.country && formik.errors.country ? (
             <TextField
               required
@@ -240,7 +240,7 @@ function AddressForm({ setAddressData }) {
               {...formik.getFieldProps("country")}
             />
           )}
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
           <FormControlLabel
             control={

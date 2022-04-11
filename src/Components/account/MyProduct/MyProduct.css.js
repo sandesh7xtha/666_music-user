@@ -70,9 +70,9 @@ export const Grid = styled.div`
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  width: 15rem;
-  height: 15rem;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+  // width: 15rem;
+  // height: 15rem;
   background-color: white;
   border-style: solid;
   border-width: 0.1px;

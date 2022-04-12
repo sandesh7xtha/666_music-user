@@ -25,7 +25,7 @@ export const Cart = () => {
   const showAddField = () => {
     setShow(!show);
   };
-  console.log(cart);
+  // console.log(cart);
   var total = 0;
   const getCartFroMDB = () => {
     axios
@@ -59,7 +59,7 @@ export const Cart = () => {
       });
   };
 
-  console.log(total);
+  // console.log(total);
   return (
     <c.root>
       <c.cartBox>
@@ -151,7 +151,7 @@ export const Cart = () => {
           </TableContainer>
         </c.content>
         <Button onClick={showAddField}>Check Out</Button>
-        {show ? <Checkout /> : " "}
+        {show ? <Checkout totalAmount={total} cartData={cart} /> : " "}
       </c.cartBox>
     </c.root>
   );

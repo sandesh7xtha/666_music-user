@@ -46,10 +46,13 @@ function AddressForm({ setAddressData }) {
       address: Yup.string().required("Required"),
       contactNumber: Yup.string().required("contact number required"),
       city: Yup.string().required("Required"),
-      state: Yup.string()
+      state: Yup.string().required("Required"),
+      zip: Yup.string()
+        .required("Required")
         .matches(/^[0-9\b]+$/, "number only")
-        .required("Required"),
-      zip: Yup.string().required("Required"),
+        .min(5, "Must be 5 characters")
+        .max(5, "Must be 5 characters"),
+
       country: Yup.string().required("Required"),
       // email: Yup.string().email("Invalid Email Format"),
     }),

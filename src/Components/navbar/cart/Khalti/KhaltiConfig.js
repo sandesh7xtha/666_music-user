@@ -7,7 +7,7 @@ let myKey = {
 let config = {
   // replace this key with yours
   publicKey: myKey.publicTestKey,
-    productIdentity: "123766",
+  productIdentity: "123766",
   productName: "My Ecommerce Store",
   productUrl: "http://localhost:3000",
   eventHandler: {
@@ -26,6 +26,16 @@ let config = {
         .then((response) => {
           console.log(response.data);
           alert("Thank you for generosity");
+          axios
+            .get("http://localhost:4000/")
+            .then((res) => {
+              console.log(res.data.data);
+              // setCart(res.data.data);
+            })
+            .catch((err) => {
+              console.log(err);
+              console.log("data insert fail");
+            });
         })
         .catch((error) => {
           console.log(error);

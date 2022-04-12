@@ -6,7 +6,7 @@ import PaymentForm from "./PaymentForm";
 import Review from "./Review";
 import Khalti from "../Khalti/Khalti";
 
-const Checkout = () => {
+const Checkout = (props) => {
   const [AddressData, setAddressData] = useState({
     fullName: "",
     address: "",
@@ -27,14 +27,41 @@ const Checkout = () => {
   //   zip: "",
   //   country: "",
   // });
+  // console.log(AddressData);
+  const alart = () => {
+    alert("fill every infromation");
+  };
+  let buttonStyles = {
+    backgroundColor: "#4f3d4f",
+    padding: "10px",
+    color: "white",
+    cursor: "pointer",
+    fontWeight: "bold",
+    border: "1px solid white",
+  };
 
   return (
     <c.root>
       <AddressForm setAddressData={setAddressData} />
       {/* <PaymentForm setPaymentData={setPaymentData} /> */}
-      <Review/>
+      <Review />
       <Button>pay</Button>
-      <Khalti/>
+      {AddressData.fullName &&
+      AddressData.address &&
+      AddressData.city &&
+      AddressData.contactNumber &&
+      AddressData.zip &&
+      AddressData.state ? (
+        <Khalti
+          AddressData={AddressData}
+          cartData={props.cartData}
+          totalAmount={props.totalAmount}
+        />
+      ) : (
+        <button onClick={alart} style={buttonStyles}>
+          Pay Via Khalti
+        </button>
+      )}
     </c.root>
   );
 };

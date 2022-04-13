@@ -39,9 +39,7 @@ export const ShopProductDetail = () => {
   const loginedUserName = localStorage.getItem("name");
   const loginedUserId = localStorage.getItem("id");
 
-
   const sendToAddToCartDatabase = (values) => {
- 
     axios
       .post(
         "http://localhost:4000/addToCart/",
@@ -63,7 +61,7 @@ export const ShopProductDetail = () => {
 
   const [count, setCount] = useState(1);
   const IncNum = () => {
-    setCount(count + 1);
+    if (count < shopProduct.stock) setCount(count + 1);
   };
   const DecNum = () => {
     if (count > 1) setCount(count - 1);
@@ -71,7 +69,6 @@ export const ShopProductDetail = () => {
       setCount(1);
     }
   };
-
 
   const formik = useFormik({
     initialValues: {
@@ -112,7 +109,6 @@ export const ShopProductDetail = () => {
       });
   };
 
-
   const [comments, setComments] = useState([]);
 
   const getCommentsFroMDB = () => {
@@ -137,7 +133,7 @@ export const ShopProductDetail = () => {
       <p.div>
         <p.ProductDetail>
           <p.imgDiv>
-          <img src={shopProduct.image} />
+            <img src={shopProduct.image} />
           </p.imgDiv>
           <p.detail>
             <p className="title">{shopProduct.title}</p>
@@ -174,7 +170,7 @@ export const ShopProductDetail = () => {
           <p>{shopProduct.description}</p>
         </p.productInfo>
         <p.comment>
-        <p>Comments</p>
+          <p>Comments</p>
           <div className="commmentDiv">
             {formik.touched.cmt && formik.errors.cmt ? (
               <TextField

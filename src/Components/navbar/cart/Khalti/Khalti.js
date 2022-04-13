@@ -5,8 +5,9 @@ import KhaltiCheckout from "khalti-checkout-web";
 import axios from "axios";
 
 export default function Khalti(props) {
-  const id = localStorage.getItem("id");
-  console.log(id);
+  const userid = localStorage.getItem("id");
+  const cartData = props.cartData;
+  // console.log(props.cartData[0].sp_id);
 
   let myKey = {
     publicTestKey: "test_public_key_9794b72619564e26a92d5a84644cbd4f",
@@ -48,16 +49,48 @@ export default function Khalti(props) {
               successAmount: response.data.data.amount,
               paymentType: response.data.data.type.name,
               payment_id: response.data.data.idx,
-              user_id: id,
+              user_id: userid,
             };
-            console.log(paymentData);
+            // console.log(paymentData);
 
-            alert("Thank you for generosity");
             axios
               .post("http://localhost:4000/payment/", paymentData)
               .then((res) => {
                 console.log(res.data.data);
-                // setCart(res.data.data);
+                let i;
+                for (i = 0; i < cartData.length; i++) {
+                  let historyData = {
+                    payment_id: res.data.data.payment_id,
+                    sp_id: props.cartData[i].sp_id,
+                  };
+                  console.log(historyData);
+
+                  axios
+                    .post("http://localhost:4000/payment/history", historyData)
+                    .then((res) => {
+                      console.log(res.data.data);
+                      axios
+                        .delete(
+                          "http://localhost:4000/addToCart/DeleteProduct/" +
+                            userid +
+                            "/" +
+                            historyData.sp_id
+                        )
+                        .then((res) => {
+                          console.log(res.data.data);
+                          alert("Thank you for generosity");
+                          window.location.reload();
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                          console.log("data insert fail");
+                        });
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                      console.log("data insert fail");
+                    });
+                }
               })
               .catch((err) => {
                 console.log(err);
@@ -101,7 +134,7 @@ export default function Khalti(props) {
     <div>
       <button
         onClick={() => {
-          checkout.show({ amount: props.totalAmount * 100 });
+          checkout.show({ amount: 2000 });
           // hello();
         }}
         style={buttonStyles}

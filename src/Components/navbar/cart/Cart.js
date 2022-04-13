@@ -31,7 +31,7 @@ export const Cart = () => {
     axios
       .get("http://localhost:4000/addToCart/" + id)
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setCart(res.data.data);
       })
       .catch((err) => {

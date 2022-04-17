@@ -52,3 +52,29 @@ export const userName = styled.div`
   margin: auto;
   padding-left: 1rem;
 `;
+
+export const historyMainDiv = styled.div`
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  //   padding-bottom:1 rem;
+  height: auto;
+
+  justify-content: space-around;
+  padding-top: 2rem;
+  margin-left: 20rem;
+  background-color: white;
+  // border-style: solid;
+  // border-width: 0.1px;
+  // border-color: #cccccc;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+  p {
+    display: flex;
+    justify-content: center;
+  }
+`;
+export const historyDataDiv = styled.div`
+  background-color: red;
+  margin-left: 2rem;
+  margin-right: 2rem;
+`;

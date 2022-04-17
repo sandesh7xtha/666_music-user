@@ -62,6 +62,7 @@ export default function Khalti(props) {
                   let historyData = {
                     payment_id: res.data.data.payment_id,
                     sp_id: props.cartData[i].sp_id,
+                    quantity: props.cartData[i].quantity,
                   };
                   console.log(historyData);
 

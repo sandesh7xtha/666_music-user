@@ -12,7 +12,7 @@ export const root = styled.div`
   // // justify-content:space-around;
 `;
 export const div = styled.div`
-  display:flex;
+  display: flex;
 `;
 
 export const categories = styled.div`
@@ -101,17 +101,14 @@ input[type=text]    {
 `;
 
 export const sortBy = styled.div`
-margin:1rem;
-
+  margin: 1rem;
 `;
 
 export const searchOutput = styled.div`
-  margin-left: 15.9rem;
+  // margin-left: 15.9rem;
   // margin-top: 1rem;
 `;
-export const productSection = styled.div`
-  
-`;
+export const productSection = styled.div``;
 
 export const upload = styled.div`
   width: 60%;

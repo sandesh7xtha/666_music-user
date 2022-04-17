@@ -44,14 +44,16 @@ const Checkout = (props) => {
     <c.root>
       <AddressForm setAddressData={setAddressData} />
       {/* <PaymentForm setPaymentData={setPaymentData} /> */}
-      <Review />
-      <Button>pay</Button>
+      {/* <Review /> */}
+      {/* <Button>pay</Button> */}
+
       {/* {AddressData.fullName &&
       AddressData.address &&
       AddressData.city &&
       AddressData.contactNumber &&
       AddressData.zip &&
       AddressData.state ? ( */}
+      <br />
       <Khalti
         AddressData={AddressData}
         cartData={props.cartData}

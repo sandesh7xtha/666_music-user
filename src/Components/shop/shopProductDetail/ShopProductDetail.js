@@ -138,6 +138,11 @@ export const ShopProductDetail = () => {
           <p.detail>
             <p className="title">{shopProduct.title}</p>
             <p className="price">Rs.{shopProduct.price}</p>
+            <p className="discount">
+              Rs.
+              {shopProduct.price -
+                (shopProduct.price * shopProduct.discount) / 100}
+            </p>
             <div className="buttonIncDic">
               <Button onClick={IncNum}>
                 <AddIcon />
@@ -150,9 +155,9 @@ export const ShopProductDetail = () => {
             </div>
 
             <p.button>
-              <Button className="BuyNow" variant="outlined">
+              {/* <Button className="BuyNow" variant="outlined">
                 BUY NOW
-              </Button>
+              </Button> */}
               <Button
                 className="AddToCart"
                 variant="outlined"

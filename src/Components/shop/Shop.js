@@ -238,56 +238,64 @@ export const Shop = (props) => {
                   id="demo-simple-select"
                   label="Age"
                 >
-                    <MenuItem
-                      value="best match"
-                      onClick={() => sortingBM("price")}
-                      style={{ display: "flex", flexDirection: "column" }}
-                    >
-                      Best Match
-                    </MenuItem>
-                    <MenuItem
-                      value="low price to higher price"
-                      onClick={() => sortingLTH("price")}
-                      style={{ display: "flex", flexDirection: "column" }}
-                    >
-                      Low to Higher Price{" "}
-                    </MenuItem>
-                    <MenuItem
-                      value="higher price to lower price"
-                      onClick={() => sortingHTL("price")}
-                      style={{ display: "flex", flexDirection: "column" }}
-                    >
-                      Higher to Lower Price
-                    </MenuItem>
+                  <MenuItem
+                    value="best match"
+                    onClick={() => sortingBM("price")}
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    Best Match
+                  </MenuItem>
+                  <MenuItem
+                    value="low price to higher price"
+                    onClick={() => sortingLTH("price")}
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    Low to Higher Price{" "}
+                  </MenuItem>
+                  <MenuItem
+                    value="higher price to lower price"
+                    onClick={() => sortingHTL("price")}
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    Higher to Lower Price
+                  </MenuItem>
                 </Select>
               </FormControl>
             </sh.sortBy>
           </sh.filterSection>
         </sh.categories>
+        <div className="flexDiv">
+          <sh.searchOutput>
+            {props.navSearchBar === "" ? null : (
+              <h3 style={{ color: "#666666", fontStyle: "italic" }}>
+                search: "{props.navSearchBar}"
+              </h3>
+            )}
+          </sh.searchOutput>
+          <sh.productSection>
+            <div className="App">
+              <Grid>
+                {search(shopProduct)
+                  .filter((shopProduct) =>
+                    shopProduct.category.includes(filterValue)
+                  )
+                  .map((item, index) => (
+                    <Link
+                      to={"/ShopProductDetail/" + item.sp_id}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Item>
+                        <img className="img" src={item.image} />
 
-        <sh.productSection>
-          <div className="App">
-            <Grid>
-              {search(shopProduct)
-                .filter((shopProduct) =>
-                  shopProduct.category.includes(filterValue)
-                )
-                .map((item, index) => (
-                  <Link
-                    to={"/ShopProductDetail/" + item.sp_id}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <Item>
-                      <img className="img" src={item.image} />
-
-                      <name className="name">{item.title}</name>
-                      <price className="price">Rs.{item.price}</price>
-                    </Item>
-                  </Link>
-                ))}
-            </Grid>
-          </div>
-        </sh.productSection>
+                        <name className="name">{item.title}</name>
+                        <price className="price">Rs.{item.price}</price>
+                      </Item>
+                    </Link>
+                  ))}
+              </Grid>
+            </div>
+          </sh.productSection>
+        </div>
       </sh.div>
     </sh.root>
   );

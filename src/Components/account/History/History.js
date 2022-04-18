@@ -4,6 +4,14 @@ import { Redirect, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 import HistoryProduct from "./HistoryProduct";
+import { Grid } from "@mui/material";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 export const History = () => {
   const history = useHistory();
@@ -85,19 +93,29 @@ export const History = () => {
           </p>
           {HistoryInfo.map((item, index) => (
             <h.historyDataDiv>
-              <p>date:{item.date}</p>
-              {/* <p>Product name:{item.title}</p> */}
-              <div>
-                <p>{item.fullName}</p>
-                <p>{item.address}</p>
-                <p>{item.contactNumber}</p>
-                <p>{item.city}</p>
-                <p>{item.province}</p>
-                <p>{item.zip}</p>
-              </div>
-              <HistoryProduct payment_id={item.payment_id} />
+              <p>Date: {item.date}</p>
+              <div className="info">
+                <div>
+                  <p>Shipping Detail</p>
+                  <div
+                    style={{
+                      textAlign: "left",
+                      width: "10rem",
+                    }}
+                  >
+                    <p>Name : {item.fullName}</p>
+                    <p>Address : {item.address}</p>
+                    <p>City : {item.city}</p>
+                    <p>Province : {item.province}</p>
+                    <p>Zip Code : {item.zip}</p>
+                  </div>
+                </div>
 
-              <p>total amount:{item.totalAmount}</p>
+                <HistoryProduct
+                  payment_id={item.payment_id}
+                  totalAmount={item.totalAmount}
+                />
+              </div>
             </h.historyDataDiv>
           ))}
         </h.historyMainDiv>

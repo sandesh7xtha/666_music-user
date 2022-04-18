@@ -135,7 +135,7 @@ export default function Khalti(props) {
     <div>
       <button
         onClick={() => {
-          checkout.show({ amount: 2000 });
+          checkout.show({ amount: props.totalAmount * 100 });
           // hello();
         }}
         style={buttonStyles}

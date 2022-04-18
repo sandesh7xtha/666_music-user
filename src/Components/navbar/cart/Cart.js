@@ -150,7 +150,12 @@ export const Cart = () => {
             </Table>
           </TableContainer>
         </c.content>
-        <Button onClick={showAddField}>Check Out</Button>
+        {cart.length >= 1 ? (
+          <Button onClick={showAddField}>Check Out</Button>
+        ) : (
+          " "
+        )}
+
         {show ? <Checkout totalAmount={total} cartData={cart} /> : " "}
       </c.cartBox>
     </c.root>

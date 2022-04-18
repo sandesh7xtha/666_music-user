@@ -7,13 +7,13 @@ export const root = styled.div`
   display: flex;
 `;
 export const div = styled.div`
-  display:flex;
+  display: flex;
 `;
 
 export const categories = styled.div`
   // background-color: red;
 
-  width: 30%;
+  width: 16rem;
   padding-left: 2rem;
   padding-right: 2rem;
   // position: fixed;
@@ -116,4 +116,9 @@ input[type=text]    {
 
 export const sortBy = styled.div`
   margin: 1rem;
+`;
+
+export const searchOutput = styled.div`
+  // margin-left: 15.9rem;
+  // margin-top: 1rem;
 `;

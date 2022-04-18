@@ -61,11 +61,14 @@ export const historyMainDiv = styled.div`
 
   justify-content: space-around;
   padding-top: 2rem;
+  padding-bottom: 2rem;
+
   margin-left: 20rem;
   background-color: white;
   // border-style: solid;
   // border-width: 0.1px;
   // border-color: #cccccc;
+  // border-radius: 25px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
   p {
@@ -74,7 +77,23 @@ export const historyMainDiv = styled.div`
   }
 `;
 export const historyDataDiv = styled.div`
-  background-color: red;
+  // background-color: red;
   margin-left: 2rem;
   margin-right: 2rem;
+  padding: 0.2rem;
+
+  width: 43rem;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: #cccccc;
+  border-radius: 5px;
+  // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  &:hover {
+    background-color: #e6e6e6;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-evenly;
+  }
 `;

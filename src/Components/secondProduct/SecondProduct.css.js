@@ -18,7 +18,7 @@ export const div = styled.div`
 export const categories = styled.div`
   // background-color: red;
 
-  width: 30%;
+  width: 16rem;
   padding-left: 2rem;
   padding-right: 2rem;
   // position: fixed;

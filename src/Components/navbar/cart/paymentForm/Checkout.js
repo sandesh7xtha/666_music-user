@@ -47,23 +47,26 @@ const Checkout = (props) => {
       {/* <Review /> */}
       {/* <Button>pay</Button> */}
 
-      {/* {AddressData.fullName &&
+      {AddressData.fullName &&
       AddressData.address &&
       AddressData.city &&
       AddressData.contactNumber &&
       AddressData.zip &&
-      AddressData.state ? ( */}
-      <br />
-      <Khalti
-        AddressData={AddressData}
-        cartData={props.cartData}
-        totalAmount={props.totalAmount}
-      />
-      {/* ) : (
+      AddressData.state ? (
+        <>
+          <br />
+
+          <Khalti
+            AddressData={AddressData}
+            cartData={props.cartData}
+            totalAmount={props.totalAmount}
+          />
+        </>
+      ) : (
         <button onClick={alart} style={buttonStyles}>
           Pay Via Khalti
         </button>
-      )} */}
+      )}
     </c.root>
   );
 };

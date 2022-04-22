@@ -7,6 +7,8 @@ import axios from "axios";
 export default function Khalti(props) {
   const userid = localStorage.getItem("id");
   const cartData = props.cartData;
+  console.log(cartData);
+
   // console.log(props.cartData[0].sp_id);
 
   let myKey = {
@@ -63,6 +65,8 @@ export default function Khalti(props) {
                     payment_id: res.data.data.payment_id,
                     sp_id: props.cartData[i].sp_id,
                     quantity: props.cartData[i].quantity,
+                    updateStock:
+                      props.cartData[i].stock - props.cartData[i].quantity,
                   };
                   console.log(historyData);
 
@@ -79,8 +83,20 @@ export default function Khalti(props) {
                         )
                         .then((res) => {
                           console.log(res.data.data);
-                          alert("Thank you for generosity");
-                          window.location.reload();
+                          axios
+                            .patch(
+                              "http://localhost:4000/shopping/updateStockAfterPurchase",
+                              historyData
+                            )
+                            .then((res) => {
+                              console.log(res.data.data);
+                              alert("Thank you for generosity");
+                              window.location.reload();
+                            })
+                            .catch((err) => {
+                              console.log(err);
+                              console.log("data insert fail");
+                            });
                         })
                         .catch((err) => {
                           console.log(err);

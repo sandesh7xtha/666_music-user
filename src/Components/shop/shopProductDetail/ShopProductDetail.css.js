@@ -30,17 +30,17 @@ export const imgDiv = styled.div`
 
 export const detail = styled.div`
   .title {
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1.5em;
   }
   .price {
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1em;
     color: #545454;
     text-decoration-line: line-through;
   }
   .discount {
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1.5em;
     color: #cf1313;
   }
@@ -94,7 +94,7 @@ export const productInfo = styled.div`
 
   p {
     margin-left: 1rem;
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1em;
   }
 `;
@@ -109,7 +109,7 @@ export const comment = styled.div`
 
   p {
     margin-left: 1rem;
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1em;
   }
   .commmentDiv {
@@ -134,5 +134,9 @@ export const item = styled.div`
   // background-color: blue;
   margin-top:"-6rem"
   justify-content: space-evenly;
+  h4{
+    font-family: cursive;
+
+  }
 
   `;

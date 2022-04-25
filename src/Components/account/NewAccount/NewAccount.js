@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import * as si from "./NewAccout.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -6,9 +6,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Alert from "../../../material/alertCOMP/alert";
 
 const NewAccount = () => {
   const history = useHistory();
+  const customAlert = useRef();
 
   const formik = useFormik({
     initialValues: {
@@ -27,7 +29,7 @@ const NewAccount = () => {
         .email("Invalid Email Format")
         .required("Email Required !"),
       newPassword: Yup.string()
-        .min(3, "Password must be at least 6 charaters")
+        .min(6, "At least 6 charaters")
         .required("Password is required"),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref("newPassword"), null], "Password must match")
@@ -50,11 +52,7 @@ const NewAccount = () => {
     data.append("email", values.email);
     data.append("password", values.newPassword);
     data.append("conformpassword", values.confirmPassword);
-    console.log(values.name);
-    console.log(values.email);
-    console.log(values.newPassword);
-    console.log(values.confirmPassword);
-
+    //
     axios
       .post("http://localhost:4000/user/signup", {
         name: values.name,
@@ -63,13 +61,16 @@ const NewAccount = () => {
         conformpassword: values.confirmPassword,
       })
       .then((res) => {
-        console.log("Data inserted");
+        // console.log("Data inserted");
         console.log(res);
+        customAlert.current.success("New Account Register");
+        alert("New Account Register");
+
         history.push("/signIn");
       })
       .catch((err) => {
         console.log(err);
-        console.log("data insert fail");
+        // console.log("data insert fail");
       });
   };
 
@@ -216,6 +217,7 @@ const NewAccount = () => {
                 We value your privacy. Your details are safe with us.
               </p>
             </si.part>
+            <Alert ref={customAlert} />
           </si.subBox>
         </si.box>
       </si.signInBox>

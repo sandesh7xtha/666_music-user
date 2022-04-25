@@ -9,7 +9,7 @@ export const Footer = () => {
         <h1
           style={{ color: "#B01414", textAlign: "center", marginTop: "-55px" }}
         >
-          666 Music Store: A Computer Science Portal for Geeks
+          666 Music : Divine Power of God
         </h1>
         <Container>
           <Row>
@@ -29,22 +29,18 @@ export const Footer = () => {
             </Column>
             <Column>
               <Heading>Social Media</Heading>
-              <FooterLink href="#">
+              <FooterLink href="https://www.facebook.com/profile.php?id=100073623379590">
                 <i className="fab fa-facebook-f">
                   <span style={{ marginLeft: "10px" }}>Facebook</span>
                 </i>
               </FooterLink>
-              <FooterLink href="#">
+              <FooterLink href="https://www.instagram.com/sandexh7shrestha/">
                 <i className="fab fa-instagram">
                   <span style={{ marginLeft: "10px" }}>Instagram</span>
                 </i>
               </FooterLink>
-              <FooterLink href="#">
-                <i className="fab fa-twitter">
-                  <span style={{ marginLeft: "10px" }}>Twitter</span>
-                </i>
-              </FooterLink>
-              <FooterLink href="#">
+
+              <FooterLink href="https://www.youtube.com/c/ShadesofNamasteNepal">
                 <i className="fab fa-youtube">
                   <span style={{ marginLeft: "10px" }}>Youtube</span>
                 </i>

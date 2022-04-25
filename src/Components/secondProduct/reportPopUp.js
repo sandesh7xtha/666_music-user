@@ -12,6 +12,7 @@ import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Alert from "../../material/alertCOMP/alert";
 
 function PaperComponent(props) {
   return (
@@ -25,8 +26,9 @@ function PaperComponent(props) {
 }
 
 export default function DraggableDialog(props) {
+  const customAlert = React.useRef();
+
   const [open, setOpen] = React.useState(false);
- 
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -53,21 +55,25 @@ export default function DraggableDialog(props) {
   });
 
   const sendToDatabase = (values) => {
-   
     console.log(props.productId);
     console.log(id);
     console.log(values.message);
     axios
-      .post("http://localhost:4000/report/", {user_id:id, shp_id:props.productId, message:values.message }, {
-        headers: { Authorization: token },
-      })
+      .post(
+        "http://localhost:4000/report/",
+        { user_id: id, shp_id: props.productId, message: values.message },
+        {
+          headers: { Authorization: token },
+        }
+      )
       .then((res) => {
         console.log("Data inserted");
         console.log(res);
-        alert("Report has been submitted!!");
+        // alert("Report has been submitted!!");
+        customAlert.current.success("Report has been submitted!!");
+
         formik.resetForm();
         handleClose();
-
       })
       .catch((err) => {
         console.log(err);
@@ -90,7 +96,8 @@ export default function DraggableDialog(props) {
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-          If you come across any other products that aren't in the mussical categories, please let us know.       <br />
+            If you come across any other products that aren't in the musical
+            categories, please let us know. <br />
             {formik.touched.message && formik.errors.message ? (
               <TextField
                 id="filled-multiline-flexible"
@@ -119,11 +126,10 @@ export default function DraggableDialog(props) {
           <Button autoFocus onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={formik.handleSubmit} >
-            Send
-          </Button>
+          <Button onClick={formik.handleSubmit}>Send</Button>
         </DialogActions>
       </Dialog>
+      <Alert ref={customAlert} />
     </div>
   );
 }

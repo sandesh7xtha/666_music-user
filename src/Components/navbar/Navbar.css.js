@@ -160,6 +160,11 @@ p{
         border-radius: 5px;
         
       },
+      // &:focus{
+      //   color: white; 
+      //   background-color: #121212;
+      //   border-radius: 5px;
+      // }
 },
 
 

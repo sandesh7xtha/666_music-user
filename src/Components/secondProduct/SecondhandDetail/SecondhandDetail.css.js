@@ -15,7 +15,6 @@ export const ProductDetail = styled.div`
   width: 66.5rem;
   background-color: white;
   display: flex;
-
 `;
 export const imgDiv = styled.div`
   // background:blue;
@@ -31,35 +30,36 @@ export const imgDiv = styled.div`
 export const detail = styled.div`
   margin-top: -3rem;
   .title {
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 2.5em;
+    margin-top: 4rem;
   }
   .price {
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1.5em;
     color: #cf1313;
-    margin-left: 2rem;
+    // margin-left: 2rem;
     margin-top: -1rem;
   }
   .usedDuration {
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1.5em;
-    margin-left: 2rem;
+    // margin-left: 2rem;
   }
   .contact {
     font-size: 1.5em;
-    font-family: Palatino Linotype;
-    margin-left: 2rem;
+    font-family: cursive;
+    // margin-left: 2rem;
   }
   .email {
     font-size: 1.5em;
-    font-family: Palatino Linotype;
-    margin-left: 2rem;
+    font-family: cursive;
+    // margin-left: 2rem;
   }
   .location {
     font-size: 1.5em;
-    font-family: Palatino Linotype;
-    margin-left: 2rem;
+    font-family: cursive;
+    // margin-left: 2rem;
   }
 `;
 
@@ -74,7 +74,7 @@ export const productInfo = styled.div`
 
   p {
     margin-left: 1rem;
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1em;
   }
 `;
@@ -89,7 +89,7 @@ export const comment = styled.div`
 
   p {
     margin-left: 1rem;
-    font-family: Palatino Linotype;
+    font-family: cursive;
     font-size: 1em;
   }
   .commmentDiv {

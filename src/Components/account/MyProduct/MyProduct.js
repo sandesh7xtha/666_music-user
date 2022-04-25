@@ -7,7 +7,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import EditProduct from "./EditSecondhandPopUp";
 
-
 export const MyProduct = () => {
   const history = useHistory();
   const token = localStorage.getItem("token");
@@ -93,18 +92,22 @@ export const MyProduct = () => {
                   style={{ textDecoration: "none" }}
                 >
                   <img className="img" src={item.image ? item.image : " "} />
-                  <name className="name">{item.title ? item.title : " "} ....</name>
+                  <name className="name">
+                    {item.title ? item.title.substr(0, 20) : " "}
+                  </name>
                 </Link>
                 <p.subGrid>
-                  <price className="price">Rs.{item.price ? item.price : " "}</price>
+                  <price className="price">
+                    Rs.{item.price ? item.price : " "}
+                  </price>
                   <div style={{ display: "flex" }}>
-                  <EditProduct data={item}/>
-                  &nbsp; 
-                  <DeleteIcon
-                    onClick={() => {
-                      deleteProduct(item.shp_id);
-                    }}
-                  />
+                    <EditProduct data={item} />
+                    &nbsp;
+                    <DeleteIcon
+                      onClick={() => {
+                        deleteProduct(item.shp_id);
+                      }}
+                    />
                   </div>
                 </p.subGrid>
               </p.Item>

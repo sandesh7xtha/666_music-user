@@ -31,7 +31,6 @@ export const SignIn = () => {
     }),
 
     onSubmit: (values) => {
-      console.log("hello");
       sendToDatabase(values);
 
       formik.resetForm();
@@ -50,7 +49,7 @@ export const SignIn = () => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("name", res.data.name);
         localStorage.setItem("id", res.data.id);
-        history.push("/addSell");
+        history.push("/news");
         window.location.reload(false);
       })
       .catch((err) => {
@@ -70,7 +69,6 @@ export const SignIn = () => {
                 marginLeft: "8rem",
                 fontWeight: "bold",
                 color: "#121212",
-
               }}
             >
               Sign In

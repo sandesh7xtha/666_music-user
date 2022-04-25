@@ -70,7 +70,7 @@ export const titleDateDiv = styled.div`
 export const title = styled.div`
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2.5rem;
 
   font-family: "Comic Sans MS", cursive, sans-serif;
   letter-spacing: 2px;

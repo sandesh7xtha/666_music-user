@@ -100,21 +100,24 @@ export const Shop = (props) => {
             .toLowerCase()
             .indexOf(props.navSearchBar.toLowerCase()) > -1
       )
-      .filter((shopProduct) => shopProduct.price < maxValue)
-      .filter((shopProduct) => shopProduct.price > minValue);
+      .filter((shopProduct) => shopProduct.price > minValue)
+      .filter((shopProduct) => shopProduct.price < maxValue);
   }
 
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] =
     useState(9999999999999999999999999999999999999999999999);
+  // console.log(minValue);
 
   const MaxMin = () => {
     let numberInputMin = document.getElementById("numberInputMinShop").value;
     let numberInputMax = document.getElementById("numberInputMaxShop").value;
 
-    setMinValue(numberInputMin);
-    if (numberInputMax < numberInputMin) {
+    // setMinValue(numberInputMin);
+    if (numberInputMax > numberInputMin) {
       setMinValue(0);
+    } else {
+      setMinValue(numberInputMin);
     }
 
     if (numberInputMax == 0) {
@@ -266,6 +269,11 @@ export const Shop = (props) => {
         </sh.categories>
         <div className="flexDiv">
           <sh.searchOutput>
+            {filterValue === "" ? (
+              <h3>Shop Now </h3>
+            ) : (
+              <h3>Shop {filterValue} </h3>
+            )}
             {props.navSearchBar === "" ? null : (
               <h3 style={{ color: "#666666", fontStyle: "italic" }}>
                 search: "{props.navSearchBar}"
@@ -287,7 +295,9 @@ export const Shop = (props) => {
                       <Item>
                         <img className="img" src={item.image} />
 
-                        <name className="name">{item.title}</name>
+                        <name className="name">
+                          {item.title.substr(0, 20)}...
+                        </name>
                         <price className="price">Rs.{item.price}</price>
                       </Item>
                     </Link>

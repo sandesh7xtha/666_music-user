@@ -69,6 +69,7 @@ export const Itemsub = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-right: 0.3rem;
+    margin-top: 0.5rem;
   }
 `;
 
@@ -164,6 +165,8 @@ export const SecondProduct = (props) => {
       setOrder("DEC");
     }
   };
+
+  const token = localStorage.getItem("token");
 
   return (
     <sp.root>
@@ -281,6 +284,11 @@ export const SecondProduct = (props) => {
         </sp.categories>
         <div className="flexDiv">
           <sp.searchOutput>
+            {filterValue === "" ? (
+              <h3>Secondhand Product </h3>
+            ) : (
+              <h3>Secondhand {filterValue} </h3>
+            )}
             {props.navSearchBar === "" ? null : (
               <h3 style={{ color: "#666666", fontStyle: "italic" }}>
                 search: "{props.navSearchBar}"
@@ -297,10 +305,15 @@ export const SecondProduct = (props) => {
                   .map((item, index) => (
                     <Itemsub>
                       <div className="PopDiv">
-                        <ReportPopUp
-                          productId={item.shp_id}
-                          style={{ display: "flex", justifyContent: "center" }}
-                        />
+                        {token ? (
+                          <ReportPopUp
+                            productId={item.shp_id}
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                            }}
+                          />
+                        ) : null}
                       </div>
                       <Link
                         to={"/secondhandDetail/" + item.shp_id}
@@ -308,7 +321,7 @@ export const SecondProduct = (props) => {
                       >
                         <Item>
                           <img src={item.image} />
-                          <name>{item.title}</name>
+                          <name>{item.title.substr(0, 20)}...</name>
                           <price>Rs.{item.price}</price>
                         </Item>
                       </Link>

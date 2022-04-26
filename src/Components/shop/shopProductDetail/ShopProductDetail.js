@@ -11,6 +11,7 @@ import SendIcon from "@mui/icons-material/Send";
 import { Divider, Paper } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Redirect } from "react-router-dom";
 
 export const ShopProductDetail = () => {
   const [shopProduct, setShopProduct] = useState([]);
@@ -38,8 +39,14 @@ export const ShopProductDetail = () => {
   const token = localStorage.getItem("token");
   const loginedUserName = localStorage.getItem("name");
   const loginedUserId = localStorage.getItem("id");
+  const [blooen, setBlooen] = useState(true);
 
   const sendToAddToCartDatabase = (values) => {
+    if (!token) {
+      // return <Redirect to="/signIn" />;
+      // alert("login to add to Cart!");
+      setBlooen(false);
+    }
     axios
       .post(
         "http://localhost:4000/addToCart/",
@@ -51,7 +58,7 @@ export const ShopProductDetail = () => {
       .then((res) => {
         console.log("Data inserted");
         console.log(res);
-        alert("Report has been submitted!!");
+        alert("Product add to Cart!");
       })
       .catch((err) => {
         console.log(err);
@@ -128,6 +135,9 @@ export const ShopProductDetail = () => {
     getCommentsFroMDB();
   }, []);
 
+  if (blooen === false) {
+    return <Redirect to="/signIn" />;
+  }
   return (
     <p.root>
       <p.div>

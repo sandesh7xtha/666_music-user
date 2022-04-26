@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import * as si from "../Sign In/SignIn.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -10,12 +10,15 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import PasswordField from "material-ui-password-field";
+import Alert from "../../../material/alertCOMP/alert";
 
 const FormControl = require("@material-ui/core/FormControl").default;
 const InputLabel = require("@material-ui/core/InputLabel").default;
 
 export const SignIn = () => {
   const history = useHistory();
+  const customAlert = useRef();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -53,8 +56,9 @@ export const SignIn = () => {
         window.location.reload(false);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
         console.log("fail ");
+        customAlert.current.error(err.response.data.message);
       });
   };
 
@@ -164,7 +168,8 @@ export const SignIn = () => {
               </Link>
             </si.part>
           </si.subBox>
-        </si.box>
+        </si.box>{" "}
+        <Alert ref={customAlert} />
       </si.signInBox>
     </si.root>
   );

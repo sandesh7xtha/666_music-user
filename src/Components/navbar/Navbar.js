@@ -12,6 +12,7 @@ import { styled, alpha } from "@mui/material/styles";
 
 import { Link } from "react-router-dom";
 import PopUp from "../account/PopUp";
+import { NavLink } from "react-router-dom";
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
@@ -33,13 +34,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const Navbar = (props) => {
   const [searchValue, setSearchValue] = useState("");
 
-
   return (
     <n.Main>
       <n.Root>
         <div>
-        <img className="mainLogo" src={logo} />
-        <img  className="bandLogo" src={bandLogo} />
+          <img className="mainLogo" src={logo} />
+          <img className="bandLogo" src={bandLogo} />
         </div>
         <n.NavMenu>
           <n.Search>
@@ -75,17 +75,33 @@ export const Navbar = (props) => {
 
       <n.SubNavbar>
         <n.SubnavMenuItem>
-          <Link style={{ textDecoration: "none" }} to="/news">
-            {" "}
+          <NavLink
+            activeStyle={{
+              fontWeight: "bold",
+            }}
+            style={{ textDecoration: "none" }}
+            to="/news"
+          >
             <p>News</p>
-          </Link>
-          <Link style={{ textDecoration: "none" }} to="/shop">
-            {" "}
-            <p>Shop</p>{" "}
-          </Link>
-          <Link style={{ textDecoration: "none" }} to="/SecondProduct">
+          </NavLink>
+          <NavLink
+            activeStyle={{
+              fontWeight: "bold",
+            }}
+            style={{ textDecoration: "none" }}
+            to="/shop"
+          >
+            <p>Shop</p>
+          </NavLink>
+          <NavLink
+            activeStyle={{
+              fontWeight: "bold",
+            }}
+            style={{ textDecoration: "none" }}
+            to="/SecondProduct"
+          >
             <p>Secondhand Product</p>
-          </Link>
+          </NavLink>
         </n.SubnavMenuItem>
       </n.SubNavbar>
     </n.Main>

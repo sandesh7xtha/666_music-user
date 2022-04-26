@@ -97,20 +97,41 @@ export const History = () => {
               <div className="info">
                 <div>
                   <p>Shipping Detail</p>
-                  <div
-                    style={{
-                      textAlign: "left",
-                      width: "10rem",
-                    }}
-                  >
-                    <p>Name : {item.fullName}</p>
+                  <div className="shippingAddress">
+                    {/* <p>Name : {item.fullName}</p>
                     <p>Address : {item.address}</p>
                     <p>City : {item.city}</p>
                     <p>Province : {item.province}</p>
-                    <p>Zip Code : {item.zip}</p>
+                    <p>Zip Code : {item.zip}</p> */}
+                    <Table
+                      sx={{ minWidth: 60 }}
+                      size="small"
+                      aria-label="a dense table"
+                    >
+                      <TableRow>
+                        <TableCell align="right">Name :</TableCell>
+                        <TableCell align="right">{item.fullName}</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell align="right">Address :</TableCell>
+                        <TableCell align="right">{item.address}</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell align="right">City :</TableCell>
+                        <TableCell align="right">{item.city}</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell align="right">Province :</TableCell>
+                        <TableCell align="right">{item.province}</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell align="right">Zip Code :</TableCell>
+                        <TableCell align="right">{item.zip}</TableCell>
+                      </TableRow>
+                    </Table>
                   </div>
                 </div>
-
+                <br />
                 <HistoryProduct
                   payment_id={item.payment_id}
                   totalAmount={item.totalAmount}

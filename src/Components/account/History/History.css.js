@@ -94,6 +94,15 @@ export const historyDataDiv = styled.div`
 
   .info {
     display: flex;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
+  }
+  .shippingAddress {
+    width: 17rem;
+    // text-align: left;
+    // justify-content: flex-start;
+    P {
+      // text-align: left;
+      // background-color: red;
+    }
   }
 `;

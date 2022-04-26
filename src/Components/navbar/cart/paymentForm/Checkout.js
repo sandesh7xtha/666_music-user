@@ -63,9 +63,13 @@ const Checkout = (props) => {
           />
         </>
       ) : (
-        <button onClick={alart} style={buttonStyles}>
-          Pay Via Khalti
-        </button>
+        <>
+          <br />
+
+          <button onClick={alart} style={buttonStyles}>
+            Pay Via Khalti
+          </button>
+        </>
       )}
     </c.root>
   );

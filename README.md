@@ -12,20 +12,8 @@ Requirement
 
 Setup the project
 
-- git clone gi
-- cd music
 - npm install
 - npm start
-  ``
-
-> Configure the database
-
-- open 'config/db.config' and change the database.\
-
-  HOST: "localhost",\
-   USER: "root",\
-   PASSWORD: "",\
-   DB: "666_music",
 
 ## Available Scripts
 
